@@ -5,7 +5,8 @@ import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
 export default class Login extends Component {
   state = {
-    email: ""
+    email: '',
+    password: ''
   }
 
   handleChange = (event) => {

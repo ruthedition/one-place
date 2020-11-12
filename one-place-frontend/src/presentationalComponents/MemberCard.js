@@ -1,4 +1,4 @@
-import { Button, Card, Icon, List, Segment } from "semantic-ui-react";
+import {Card, Icon, List, Segment } from "semantic-ui-react";
 
 const MemberCard = (props) => {
 

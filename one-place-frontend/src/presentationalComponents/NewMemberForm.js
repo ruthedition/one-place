@@ -4,14 +4,8 @@ import { Link } from 'react-router-dom'
 const NewMemberForm = (props) => {
 
   const {
-    firstName,
-    lastName,
-    birthday,
-    diet,
-    shoeSize,
     gifts,
     items,
-    color,
     notes
   } = props.member
 

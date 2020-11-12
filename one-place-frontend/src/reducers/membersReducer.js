@@ -1,11 +1,14 @@
 export default function membersReducer(state = [], action) {
   switch (action.type) {
-    case 'ADD_MEMBER':
+    case 'LOAD_MEMBERS':
       console.log(action)
+      return action.members
+    case 'ADD_MEMBER':
       return [...state, action.member]
-
     default:
       return state
   }
+
+
 }
 

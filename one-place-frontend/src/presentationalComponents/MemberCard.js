@@ -3,11 +3,11 @@ import {Card, Icon, List, Segment } from "semantic-ui-react";
 const MemberCard = (props) => {
 
   const {
-    firstName,
-    lastName,
+    first_name,
+    last_name,
     birthday,
     diet,
-    shoeSize,
+    shoe_size,
     gifts,
     items,
     color,
@@ -29,7 +29,7 @@ const MemberCard = (props) => {
       <Card.Description>
         <List>
           {renderListItem(`Diet: ${diet}`, 'food', 'grey')}
-          {renderListItem(`Shoe Size: ${shoeSize}`, 'shopping bag', 'blue')}
+          {renderListItem(`Shoe Size: ${shoe_size}`, 'shopping bag', 'blue')}
           {renderListItem(`Gift Ideas: ${gifts}`, 'gift', 'teal')}
           {renderListItem(`Favorite Items: ${items}`, 'heart', 'red')}
           {renderListItem(`Favorite Color: ${color}`, 'circle full', `${color}`)}
@@ -43,7 +43,7 @@ const MemberCard = (props) => {
       <Card.Content>
         <Card.Header>
           <Icon name='user circle' color='grey' />
-          {firstName} {lastName}
+          {first_name} {last_name}
         </Card.Header>
         <Card.Meta>
           <Icon name='birthday cake' color='purple' />

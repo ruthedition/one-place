@@ -60,8 +60,8 @@ const NewMemberForm = (props) => {
         onSubmit={props.handleSubmit}
       >
         <Form.Group >
-          {renderInput('First Name', 'text', 'firstName')}
-          {renderInput('Last Name', 'text', 'lastName')}
+          {renderInput('First Name', 'text', 'first_name')}
+          {renderInput('Last Name', 'text', 'last_name')}
         </Form.Group>
         <Form.Group >
           {renderInput('Birthday', 'date', 'birthday')}
@@ -85,7 +85,7 @@ const NewMemberForm = (props) => {
         </Form.Group>
         <Form.Group>
           {renderInput('Dietary Preferences', 'text', 'diet')}
-          {renderInput('Shoe Size', 'number', 'shoeSize')}
+          {renderInput('Shoe Size', 'number', 'shoe_size')}
         </Form.Group>
         <Form.TextArea
           label='Notes'

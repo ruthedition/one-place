@@ -47,6 +47,7 @@ const MemberCard = (props) => {
         </Card.Header>
         <Card.Meta>
           <Icon name='birthday cake' color='purple' />
+          {console.log(birthday)}
           {birthday}
         </Card.Meta>
         {renderDescription()}

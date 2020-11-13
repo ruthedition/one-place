@@ -12,15 +12,12 @@ class MemberCards extends Component {
 
   render() {
     return (
-      <div>      {console.log(this.props.members)}
-
       <Card.Group itemsPerRow={2} centered>
-        {this.props.members.map(member => <MemberCard member={member} />)}
-      </Card.Group></div>
+        {this.props.members.map(member => <MemberCard key={member.id}member={member} />)}
+      </Card.Group>
     )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {
@@ -28,10 +25,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchMembers: () => dispatch(fetchMembers())
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  fetchMembers: () => dispatch(fetchMembers())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(MemberCards)

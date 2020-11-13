@@ -2,17 +2,18 @@ import React, { Component } from 'react'
 import NewMemberForm from '../presentationalComponents/NewMemberForm'
 import { v1 as uuid } from 'uuid'
 import { connect } from 'react-redux'
+import { addMember } from '../actions/membersActions'
 
 
 class NewMember extends Component {
 
   state = {
     member: {
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       birthday: '',
       diet: '',
-      shoeSize: '',
+      shoe_size: '',
       gifts: '',
       items: '',
       color: '',
@@ -45,11 +46,11 @@ class NewMember extends Component {
     this.props.addMember(member)
     this.setState({
       member: {
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         birthday: '',
         diet: '',
-        shoeSize: '',
+        shoe_size: '',
         gifts: '',
         items: '',
         color: '',
@@ -81,7 +82,7 @@ class NewMember extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addMember: (member) => dispatch({ type: 'ADD_MEMBER', member })
+    addMember: (member) => dispatch(addMember(member))
   }
 }
 

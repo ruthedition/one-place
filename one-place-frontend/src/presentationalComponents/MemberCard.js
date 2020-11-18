@@ -1,4 +1,4 @@
-import {Card, Icon, List, Segment } from "semantic-ui-react";
+import {Button, Card, Icon, List, Segment } from "semantic-ui-react";
 
 const MemberCard = (props) => {
 
@@ -60,6 +60,7 @@ const MemberCard = (props) => {
       <Card.Content extra>
         <Icon name='paperclip' color='yellow' />
         notes: {notes}
+        <Button size="tiny">Add Note</Button>
       </Card.Content>
     )
   }

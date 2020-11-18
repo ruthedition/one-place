@@ -6,7 +6,6 @@ export const fetchMembers = () => {
     .then(resp => resp.json())
     .then(data => dispatch({type: 'LOAD_MEMBERS', members: data}))
   }
- 
 }
 
 export const addMember = (member) => {

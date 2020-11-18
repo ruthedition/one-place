@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Segment, Message } from 'semantic-ui-react'
 
-
-
 export default class NewUserForm extends Component {
   state = {
     firstName: "",
@@ -34,7 +32,6 @@ export default class NewUserForm extends Component {
       <Form.Input
         type={type}
         name={name}
-        id={name}
         placeholder={label}
         value={this.state[name]}
         onChange={(event) => this.handleChange(event)}

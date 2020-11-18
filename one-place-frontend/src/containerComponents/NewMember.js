@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import NewMemberForm from '../presentationalComponents/NewMemberForm'
-import { v1 as uuid } from 'uuid'
 import { connect } from 'react-redux'
 import { addMember } from '../actions/membersActions'
 
@@ -42,8 +41,7 @@ class NewMember extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    let member = { ...this.state.member, id: uuid() }
-    this.props.addMember(member)
+    this.props.addMember({...this.state.member})
     this.setState({
       member: {
         first_name: '',
@@ -82,7 +80,7 @@ class NewMember extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addMember: (member) => dispatch(addMember(member))
+    addMember: (member) => dispatch(addMember(member)),
   }
 }
 

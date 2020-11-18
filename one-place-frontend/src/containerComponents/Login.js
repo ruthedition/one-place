@@ -17,10 +17,17 @@ export default class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.login(this.state)
-    this.setState({
-      email: ""
+    const {email, password } = this.state
+    const data = {email: email, password: password}
+    fetch('http://localhost:8000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+      body: JSON.stringify(data),
     })
+    .then(response => response.json())
+    .then(response => console.log(response))
   }
 
   render() {

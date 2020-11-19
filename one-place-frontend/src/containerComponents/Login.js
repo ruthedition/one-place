@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { LoginForm } from '../presentationalComponents/LoginForm'
+import { login } from '../actions/userActions'
+import { Redirect } from 'react-router-dom'
 
 
-export default class Login extends Component {
+class Login extends Component {
   state = {
     email: '',
     password: ''
@@ -17,58 +19,35 @@ export default class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const {email, password } = this.state
-    const data = {email: email, password: password}
-    fetch('http://localhost:8000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json', 
-      },
-      body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(response => console.log(response))
+    const { email, password } = this.state
+    const data = { email: email, password: password }
+    this.props.login(data)
   }
+
 
   render() {
     return (
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as='h2' color='teal' textAlign='center'>
-            Login
-          </Header>
-          <Form size='large' onSubmit={this.handleSubmit}>
-            <Segment stacked>
-              <Form.Input
-                fluid icon='user' iconPosition='left'
-                type='text'
-                name='email'
-                id='email'
-                placeholder='email'
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-
-              <Form.Input
-                fluid icon='lock'
-                iconPosition='left'
-                type='password'
-                name='password'
-                id='password'
-                placeholder='Password'
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-              <Button color='teal' type="submit" >Submit</Button>
-            </Segment>
-          </Form>
-          <Message>
-            Don't Have a Login?  <Link to='user/new'> Sign Up!</Link>
-          </Message>
-        </Grid.Column>
-      </Grid>
-
-
+      
+        this.props.loggedIn ?
+          <Redirect to="/members" /> :
+          <LoginForm email={this.state.email} password={this.state.password} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+      
     )
   }
 }
+
+
+const mapStateToProps = ({ users }) => {
+  return {
+    loggedIn: users.loggedIn
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (data) => dispatch(login(data)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+

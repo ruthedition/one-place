@@ -16,7 +16,7 @@ export const NavBar = (props) => {
         </Menu.Item>
           <Link to='/member/new'><Menu.Item >Add New Family Member</Menu.Item></Link>
           <Link to='/members'><Menu.Item >All Members</Menu.Item></Link>
-         <Menu.Item onClick={props.logout}>Logout</Menu.Item>
+          <Menu.Item onClick={props.logout}>Logout</Menu.Item>
         </Container>
       </Menu>
       <Segment vertical style={{ margin: '5em 0em 0em' }}>

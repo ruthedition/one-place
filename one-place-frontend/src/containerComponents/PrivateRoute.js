@@ -3,9 +3,9 @@ import { connect } from "react-redux"
 const { Route, Redirect } = require("react-router-dom")
 
 
-const PrivateRoute = ({component: Component, ...rest}) => {
+const PrivateRoute = ({component: Component, user, ...rest}) => {
   return <Route {...rest} render={(props) => (
-    rest.user.loggedIn
+    user.loggedIn
     ? <Component {...props} />
     : <Redirect to='/login'/>
   )}

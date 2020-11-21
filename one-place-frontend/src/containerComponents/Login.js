@@ -27,11 +27,9 @@ class Login extends Component {
 
   render() {
     return (
-      
-        this.props.loggedIn ?
-          <Redirect to="/members" /> :
-          <LoginForm email={this.state.email} password={this.state.password} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-      
+      this.props.loggedIn ?
+        <Redirect to="/members" /> :
+        <LoginForm email={this.state.email} password={this.state.password} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
     )
   }
 }
@@ -45,6 +43,7 @@ const mapStateToProps = ({ users }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (data) => dispatch(login(data)),
+    
   }
 }
 

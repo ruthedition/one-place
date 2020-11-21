@@ -1,8 +1,8 @@
 const URL = 'http://localhost:8000';
 
-export const fetchMembers = (userId) => {
+export const fetchMembers = (id) => {
   return (dispatch)=>{
-    fetch(URL + `/members?user_id=${userId}`)
+    fetch(URL + `/members?user_id=${id}`)
     .then(resp => resp.json())
     .then(data => dispatch({type: 'LOAD_MEMBERS', members: data}))
   }

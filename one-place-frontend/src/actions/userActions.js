@@ -8,17 +8,12 @@ export const login = (data) => {
       body: JSON.stringify(data),
     })
     .then(response => response.json())
-    .then(response => dispatch({type: 'LOGIN', user: response}))
+    .then(response => {
+       if (response.error){
+         return window.alert(response.error)
+       } else {
+        dispatch({type: 'LOGIN', response})
+       }
+    })
   }
 }
-
-
-
-
-// handleFetch = (response) => {
-//   if (!response.errors) {
-//     console.log(response)
-//   } else {
-//     alert(response.errors)
-//   }
-// }

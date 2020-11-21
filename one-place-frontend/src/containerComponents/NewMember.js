@@ -78,6 +78,7 @@ class NewMember extends Component {
   }
 }
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addMember: (member) => dispatch(addMember(member)),

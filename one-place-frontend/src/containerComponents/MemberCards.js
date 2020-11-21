@@ -13,7 +13,7 @@ class MemberCards extends Component {
   render() {
     return (
       <Card.Group itemsPerRow={2} centered>
-        {this.props.members.map(member => <MemberCard key={member.id} member={member} user={this.props.user.id}/>)}
+        {this.props.members.map(member => <MemberCard key={member.id} member={member}/>)}
       </Card.Group>
     )
   }

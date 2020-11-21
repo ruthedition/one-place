@@ -16,7 +16,8 @@ class NewMember extends Component {
       gifts: '',
       items: '',
       color: '',
-      notes: ''
+      notes: '',
+      user_id: this.props.user.id
     },
     formStatus: {
       success: false,
@@ -41,6 +42,7 @@ class NewMember extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    console.log(this.props.user)
     this.props.addMember({...this.state.member})
     this.setState({
       member: {
@@ -78,6 +80,11 @@ class NewMember extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    user: state.users
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -85,4 +92,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewMember)
+export default connect(mapStateToProps, mapDispatchToProps)(NewMember)

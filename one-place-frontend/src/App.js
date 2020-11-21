@@ -6,6 +6,7 @@ import Login from './containerComponents/Login';
 import NewUserForm from './containerComponents/NewUserForm';
 import MemberCards from './containerComponents/MemberCards'
 import {NavBar} from './presentationalComponents/NavBar';
+import {logout} from './actions/userActions'
 
 const App = (props) => {
 
@@ -13,7 +14,7 @@ const App = (props) => {
     <div>
       <Router>
         <div>
-          {props.user.loggedIn && <NavBar user={props.user} />}
+          {props.user.loggedIn && <NavBar user={props.user} logout={props.logout} />}
           <Switch>
             <Route exact path='/' component={Login} />
             <Route exact path='/login' component={Login} />
@@ -34,4 +35,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(logout())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

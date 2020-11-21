@@ -17,3 +17,19 @@ export const login = (data) => {
     })
   }
 }
+
+
+export const logout = () => {
+  return (dispatch)=>{
+    fetch('http://localhost:8000/logout')
+    
+    .then(response => {
+       if (response.error){
+         return window.alert(response.error)
+       } else {
+        dispatch({type: 'LOGOUT'})
+       }
+    })
+  }
+}
+

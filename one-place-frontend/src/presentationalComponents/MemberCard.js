@@ -39,6 +39,7 @@ const MemberCard = (props) => {
       </List.Item>
     )
   }
+  
   const renderDescription = () => {
     return (
       <Card.Description>
@@ -90,7 +91,6 @@ const MemberCard = (props) => {
           <Icon name='trash' />
         </Button>
       </div>
-
     )
   }
 
@@ -102,8 +102,6 @@ const MemberCard = (props) => {
         {renderButtons()}
       </HoverCard>
     </Segment>
-
-
   )
 }
 

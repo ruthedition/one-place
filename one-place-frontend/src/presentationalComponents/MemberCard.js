@@ -1,4 +1,4 @@
-import { Button, Card, Icon, List, Segment } from "semantic-ui-react";
+import { Button, Card, Icon, List, Segment, Popup } from "semantic-ui-react";
 import styled from 'styled-components'
 
 
@@ -39,7 +39,7 @@ const MemberCard = (props) => {
       </List.Item>
     )
   }
-  
+
   const renderDescription = () => {
     return (
       <Card.Description>
@@ -84,12 +84,8 @@ const MemberCard = (props) => {
   const renderButtons = () => {
     return (
       <div className='hiddenButton' hidden >
-        <Button icon color='linkedin' size='massive'>
-          <Icon name='pencil' />
-        </Button>
-        <Button icon color='youtube' size='massive'>
-          <Icon name='trash' />
-        </Button>
+        <Popup content='Edit family member' trigger={<Button icon='pencil' color='linkedin' size='massive'/>}/>
+        <Popup content='Remove family member' trigger={<Button icon='trash' color='youtube' size='massive'/>}/>
       </div>
     )
   }

@@ -1,4 +1,19 @@
-import {Button, Card, Icon, List, Segment } from "semantic-ui-react";
+import { Button, Card, Icon, List, Segment } from "semantic-ui-react";
+import styled from 'styled-components'
+
+
+const HoverCard = styled(Card)`
+  &:hover .hiddenButton{
+    display: flex;
+    position: absolute;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.4);
+  }
+`
 
 const MemberCard = (props) => {
 
@@ -45,6 +60,7 @@ const MemberCard = (props) => {
           <Icon name='user circle' color='grey' />
           {first_name} {last_name}
         </Card.Header>
+
         <Card.Meta>
           <Icon name='birthday cake' color='purple' />
           {console.log(birthday)}
@@ -60,19 +76,38 @@ const MemberCard = (props) => {
       <Card.Content extra>
         <Icon name='paperclip' color='yellow' />
         notes: {notes}
-        <Button size="tiny">Add Note</Button>
       </Card.Content>
     )
   }
 
+  const renderButtons = () => {
+    return (
+      <div className='hiddenButton' hidden >
+        <Button icon color='linkedin' size='massive'>
+          <Icon name='pencil' />
+        </Button>
+        <Button icon color='youtube' size='massive'>
+          <Icon name='trash' />
+        </Button>
+      </div>
+
+    )
+  }
+
   return (
-    <Segment vertical style={{ margin: '1em 0em 0em', padding: '2em 5em 2em', border: 'none' }}>
-      <Card raised>
+    <Segment vertical style={{ margin: '1em 0em 0em', padding: '2em 5em 2em', border: 'none' }} >
+      <HoverCard raised >
         {renderContent()}
         {renderExtraContent()}
-      </Card>
+        {renderButtons()}
+      </HoverCard>
     </Segment>
+
+
   )
 }
 
 export default MemberCard
+
+
+

@@ -48,8 +48,8 @@ export const LoginForm = (props) => {
     </Grid>
 
 
-    )
-  }
+  )
+}
 
 
 

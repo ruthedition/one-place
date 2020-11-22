@@ -5,8 +5,8 @@ import FamilyForm from './containerComponents/NewMember';
 import Login from './containerComponents/Login';
 import NewUserForm from './containerComponents/NewUserForm';
 import MemberCards from './containerComponents/MemberCards'
-import {NavBar} from './presentationalComponents/NavBar';
-import {logout} from './actions/userActions'
+import { NavBar } from './presentationalComponents/NavBar';
+import { logout } from './actions/userActions'
 import PrivateRoute from './containerComponents/PrivateRoute'
 
 const App = (props) => {

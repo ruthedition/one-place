@@ -7,7 +7,5 @@ export default function membersReducer(state = [], action) {
     default:
       return state
   }
-
-
 }
 

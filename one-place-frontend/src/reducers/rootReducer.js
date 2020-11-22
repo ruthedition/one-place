@@ -1,5 +1,5 @@
-import membersReducer from './membersReducer'
 import usersReducer from './usersReducer'
+import membersReducer from './membersReducer'
 import { combineReducers } from 'redux'
 
 const appReducer = combineReducers({
@@ -13,4 +13,6 @@ const rootReducer = (state, action) => {
   }
   return appReducer(state, action)
 }
+
+
 export default rootReducer

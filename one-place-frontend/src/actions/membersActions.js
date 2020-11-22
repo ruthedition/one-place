@@ -21,3 +21,4 @@ export const addMember = (member) => {
       .then(data => dispatch({ type: 'ADD_MEMBER', member: data }))
   }
 }
+

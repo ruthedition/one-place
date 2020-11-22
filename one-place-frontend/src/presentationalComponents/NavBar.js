@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 
 export const NavBar = (props) => {
 
-
-
   return (
     <div>
       <Menu fixed='top' inverted style={{ marginRight: '0em' }} size='large' color='grey'>

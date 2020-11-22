@@ -46,8 +46,6 @@ export const LoginForm = (props) => {
         </Message>
       </Grid.Column>
     </Grid>
-
-
   )
 }
 

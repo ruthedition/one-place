@@ -18,6 +18,7 @@ const HoverCard = styled(Card)`
 const MemberCard = (props) => {
 
   const {
+    id,
     first_name,
     last_name,
     birthday,
@@ -64,7 +65,6 @@ const MemberCard = (props) => {
 
         <Card.Meta>
           <Icon name='birthday cake' color='purple' />
-          {console.log(birthday)}
           {birthday}
         </Card.Meta>
         {renderDescription()}
@@ -84,8 +84,24 @@ const MemberCard = (props) => {
   const renderButtons = () => {
     return (
       <div className='hiddenButton' hidden >
-        <Popup content='Edit family member' trigger={<Button icon='pencil' color='linkedin' size='massive'/>}/>
-        <Popup content='Remove family member' trigger={<Button icon='trash' color='youtube' size='massive'/>}/>
+        <Popup
+          content='Edit family member'
+          trigger={
+            <Button icon='pencil'
+              color='linkedin'
+              size='massive'
+            />
+          } />
+        <Popup
+          content='Remove family member'
+          trigger={
+            <Button
+              icon='trash'
+              color='youtube'
+              size='massive'
+              onClick={() => props.removeMember(id)}
+            />
+          } />
       </div>
     )
   }

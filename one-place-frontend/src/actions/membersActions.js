@@ -22,3 +22,11 @@ export const addMember = (member) => {
   }
 }
 
+export const removeMember = (memberId) => {
+  return (dispatch) => {
+    fetch(`${URL}/members/${memberId}`, {
+      method: "DELETE",
+    })
+      .then(() => dispatch({type: 'REMOVE_MEMBER', memberId}))
+  }
+}

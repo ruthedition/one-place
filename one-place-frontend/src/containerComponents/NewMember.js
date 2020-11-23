@@ -42,7 +42,6 @@ class NewMember extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.props.user)
     this.props.addMember({ ...this.state.member })
     this.setState({
       member: {

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import MemberCard from '../presentationalComponents/MemberCard'
 import { Card } from 'semantic-ui-react'
-import { fetchMembers } from '../actions/membersActions'
+import { fetchMembers, removeMember } from '../actions/membersActions'
 
 class MemberCards extends Component {
 
@@ -13,7 +13,7 @@ class MemberCards extends Component {
   render() {
     return (
       <Card.Group itemsPerRow={2} centered>
-        {this.props.members.map(member => <MemberCard key={member.id} member={member} />)}
+        {this.props.members.map(member => <MemberCard key={member.id} member={member} removeMember={this.props.removeMember}/>)}
       </Card.Group>
     )
   }
@@ -27,7 +27,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchMembers: (id) => dispatch(fetchMembers(id))
+  fetchMembers: (id) => dispatch(fetchMembers(id)),
+  removeMember: (id) => dispatch(removeMember(id))
+
 })
 
 

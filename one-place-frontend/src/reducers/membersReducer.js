@@ -4,6 +4,8 @@ export default function membersReducer(state = [], action) {
       return action.members
     case 'ADD_MEMBER':
       return [...state, action.member]
+    case 'REMOVE_MEMBER':
+      return state.filter(member => member.id !== action.memberId)
     default:
       return state
   }

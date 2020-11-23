@@ -23,7 +23,7 @@ export const EditMemberForm = (props) => {
         <Modal.Content>
           <FormContainer
             member={member}
-            handleSubmit={() => editMember(member)}
+            handleSubmit={editMember}
             handleChange={handleChange}
           />
         </Modal.Content>

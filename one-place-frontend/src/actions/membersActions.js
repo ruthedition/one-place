@@ -22,6 +22,20 @@ export const addMember = (member) => {
   }
 }
 
+export const editMember = (member) => {
+  return (dispatch) => {
+    fetch(`${URL}/members/${member.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(member)
+    })
+      .then(resp => resp.json())
+      .then(data => dispatch({ type: 'EDIT_MEMBER', member: data }))
+  }
+}
+
 export const removeMember = (memberId) => {
   return (dispatch) => {
     fetch(`${URL}/members/${memberId}`, {
@@ -30,5 +44,3 @@ export const removeMember = (memberId) => {
       .then(() => dispatch({type: 'REMOVE_MEMBER', memberId}))
   }
 }
-
-export const editMember = (member) => {}

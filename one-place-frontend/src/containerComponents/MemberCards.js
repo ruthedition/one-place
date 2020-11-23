@@ -28,7 +28,7 @@ class MemberCards extends Component {
   handleChange = (event) => {
     this.setState({
       selectedMember: {
-        ...this.state.member,
+        ...this.state.selectedMember,
         [event.target.name]: event.target.value
       }
     })

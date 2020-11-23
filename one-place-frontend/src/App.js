@@ -5,7 +5,7 @@ import { NavBar } from './presentationalComponents/NavBar';
 import { logout } from './actions/userActions'
 import Login from './containerComponents/Login';
 import PrivateRoute from './containerComponents/PrivateRoute'
-import NewUserForm from './containerComponents/NewUserForm';
+import NewUser from './containerComponents/NewUser';
 import FamilyForm from './containerComponents/NewMember';
 import MemberCards from './containerComponents/MemberCards'
 
@@ -19,7 +19,7 @@ const App = (props) => {
           <Switch>
             <Route exact path='/' component={Login} />
             <Route exact path='/login' component={Login} />
-            <PrivateRoute exact path='/user/new' component={NewUserForm} />
+            <PrivateRoute exact path='/user/new' component={NewUser} />
             <PrivateRoute exact path='/member/new' component={FamilyForm} />
             <PrivateRoute exact path='/members' component={MemberCards} />
           </Switch>

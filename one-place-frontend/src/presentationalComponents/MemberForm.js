@@ -1,11 +1,11 @@
 import { Form, Button, Grid, Header, Container, Message } from "semantic-ui-react";
 import { Link } from 'react-router-dom'
 
-const NewMemberForm = (props) => {
+export const MemberForm = (props) => {
 
   const {
     gifts,
-    items,
+    items, 
     notes
   } = props.member
 
@@ -38,7 +38,7 @@ const NewMemberForm = (props) => {
     const { hidden, header, content } = props.message
     return (
       <Message
-        hidden={hidden}
+        hidden={hidden} 
         success={success}
         warning={warning}
         error={error}
@@ -101,18 +101,20 @@ const NewMemberForm = (props) => {
   }
 
   return (
-    <Container>
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-        <Grid.Row>
-          {renderHeader()}
-        </Grid.Row>
-        <Grid.Row >
-          {renderForm()}
-        </Grid.Row>
-      </Grid>
-    </Container>
+    <div>
+
+      <Container>
+        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+          <Grid.Row>
+            {renderHeader()}
+          </Grid.Row>
+          <Grid.Row >
+            {renderForm()}
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </div>
   )
 }
 
 
-export default NewMemberForm

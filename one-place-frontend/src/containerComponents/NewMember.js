@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import NewMemberForm from '../presentationalComponents/NewMemberForm'
 import { connect } from 'react-redux'
 import { addMember } from '../actions/membersActions'
+import FormContainer from './FormContainer'
 
 
 class NewMember extends Component {
@@ -18,18 +18,9 @@ class NewMember extends Component {
       color: '',
       notes: '',
       user_id: this.props.user.id
-    },
-    formStatus: {
-      success: false,
-      warning: false,
-      error: false,
-    },
-    message: {
-      hidden: true,
-      header: '',
-      content: ''
     }
   }
+
 
   handleChange = (event) => {
     this.setState({
@@ -40,40 +31,14 @@ class NewMember extends Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    this.props.addMember({ ...this.state.member })
-    this.setState({
-      member: {
-        first_name: '',
-        last_name: '',
-        birthday: '',
-        diet: '',
-        shoe_size: '',
-        gifts: '',
-        items: '',
-        color: '',
-        notes: ''
-      },
-      formStatus: {
-        success: true
-      },
-      message: {
-        hidden: false,
-        header: 'Your member has been added',
-        content: 'View all members'
-      }
-    })
-  }
 
   render() {
     return (
-      <NewMemberForm
+      <FormContainer
+        message='Your member has been added'
         member={this.state.member}
-        formStatus={this.state.formStatus}
-        message={this.state.message}
+        handleSubmit={this.props.addMember}
         handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
       />
     )
   }

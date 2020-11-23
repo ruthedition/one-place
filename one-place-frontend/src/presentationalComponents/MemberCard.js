@@ -62,7 +62,6 @@ const MemberCard = (props) => {
           <Icon name='user circle' color='grey' />
           {first_name} {last_name}
         </Card.Header>
-
         <Card.Meta>
           <Icon name='birthday cake' color='purple' />
           {birthday}
@@ -90,6 +89,7 @@ const MemberCard = (props) => {
             <Button icon='pencil'
               color='linkedin'
               size='massive'
+              onClick={() => props.handleEdit(props.member)}
             />
           } />
         <Popup

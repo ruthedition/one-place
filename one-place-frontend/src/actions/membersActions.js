@@ -30,3 +30,5 @@ export const removeMember = (memberId) => {
       .then(() => dispatch({type: 'REMOVE_MEMBER', memberId}))
   }
 }
+
+export const editMember = (member) => {}

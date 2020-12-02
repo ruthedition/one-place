@@ -4,7 +4,6 @@ import { LoginForm } from '../presentationalComponents/LoginForm'
 import { login } from '../actions/userActions'
 import { Redirect } from 'react-router-dom'
 
-
 class Login extends Component {
   state = {
     email: '',
@@ -24,7 +23,6 @@ class Login extends Component {
     this.props.login(data)
   }
 
-
   render() {
     return (
       this.props.loggedIn ?
@@ -33,7 +31,6 @@ class Login extends Component {
     )
   }
 }
-
 
 const mapStateToProps = ({ users }) => {
   return {

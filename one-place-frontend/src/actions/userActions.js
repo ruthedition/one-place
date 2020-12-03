@@ -27,8 +27,14 @@ export const addUser = (user) => {
       },
       body: JSON.stringify(user)
     })
-      .then(resp => resp.json())
-      .then(data => dispatch({ type: 'ADD_USER', user: data }))
+      .then(response => response.json())
+      .then(response => {
+        if (response.error) {
+          return window.alert(response.error)
+        } else {
+          dispatch({ type: 'ADD_USER', response })
+        }
+      })
   }
 }
 

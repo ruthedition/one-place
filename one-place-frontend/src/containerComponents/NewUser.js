@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Form } from "semantic-ui-react";
 import { NewUserForm } from '../presentationalComponents/NewUserForm'
-
-export default class NewUser extends Component {
+import { connect } from 'react-redux'
+import { addUser } from '../actions/userActions'
+class NewUser extends Component {
   state = {
     firstName: "",
     lastName: "",

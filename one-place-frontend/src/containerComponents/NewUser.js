@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Form } from "semantic-ui-react";
-
 import { NewUserForm } from '../presentationalComponents/NewUserForm'
 
 export default class NewUser extends Component {
@@ -39,6 +38,7 @@ export default class NewUser extends Component {
       />
     )
   }
+  
 
   render() {
     return (
@@ -49,3 +49,11 @@ export default class NewUser extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addUser: (user) => dispatch(addUser(user)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NewUser)

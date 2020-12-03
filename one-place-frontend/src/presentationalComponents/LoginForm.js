@@ -42,7 +42,7 @@ export const LoginForm = (props) => {
           </Segment>
         </Form>
         <Message>
-          Don't Have a Login?  <Link to='user/new'> Sign Up!</Link>
+          Don't Have a Login?  <Link to='/user/new'> Sign Up!</Link>
         </Message>
       </Grid.Column>
     </Grid>

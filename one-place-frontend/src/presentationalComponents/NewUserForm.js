@@ -17,7 +17,7 @@ export const NewUserForm = (props) => {
         <Form size='large' onSubmit={handleSubmit}>
           <Segment stacked>
             {renderInput('First Name', 'text', 'firstName')}
-            {renderInput('First Last', 'text', 'firstlast')}
+            {renderInput('Last Name', 'text', 'lastName')}
             {renderInput('Email', 'text', 'email')}
             {renderInput('Password', 'password', 'password')}
             <Button color='teal' type="submit" >Submit</Button>

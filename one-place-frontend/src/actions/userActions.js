@@ -18,6 +18,19 @@ export const login = (data) => {
   }
 }
 
+export const addUser = (user) => {
+  return (dispatch) => {
+    fetch(URL + '/users', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user)
+    })
+      .then(resp => resp.json())
+      .then(data => dispatch({ type: 'ADD_USER', user: data }))
+  }
+}
 
 export const logout = () => {
   return (dispatch) => {

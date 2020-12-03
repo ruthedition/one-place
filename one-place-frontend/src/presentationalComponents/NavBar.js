@@ -10,7 +10,7 @@ export const NavBar = (props) => {
       <Menu fixed='top' inverted style={{ marginRight: '0em' }} size='large' color='grey'>
         <Container>
           <Menu.Item header>
-            Welcome {props.user.firstName}
+            Welcome {props.user.current.firstName}!
           </Menu.Item>
           <Link to='/member/new'><Menu.Item >Add New Family Member</Menu.Item></Link>
           <Link to='/members'><Menu.Item >All Members</Menu.Item></Link>

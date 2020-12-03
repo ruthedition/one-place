@@ -1,19 +1,26 @@
-export default function usersReducer(state = { loggedIn: false }, action) {
+export default function usersReducer(state = { valid: false, current: {}, authComplete: false }, action) {
   switch (action.type) {
     case 'LOGIN':
-      const { id, first_name } = action.response
-      return { id, firstName: first_name, loggedIn: true }
-    case 'ADD_USER':
-      const {id, first_name } = action.response
+      const { user, valid } = action.response
+      const { id, first_name } = user
       return {
-        id,
-        firstName: first_name,
-        current: {},
-        valid: true,
-        authCompleted: false,
-        errors: {},
-        loggedIn: true
+        ...state,
+        current: {
+          id,
+          firstName: first_name
+        },
+        valid
       }
+    case 'INVALID_USER':
+      return {
+        ...state,
+        valid: false,
+        errors: action.errors
+      }
+    case 'BEGIN_AUTH':
+      return { ...state, authComplete: false }
+    case 'COMPLETE_AUTH':
+      return { ...state, authComplete: true }
     default:
       return state
   }

@@ -15,7 +15,7 @@ const App = (props) => {
     <div>
       <Router>
         <div>
-          {props.user.loggedIn && <NavBar user={props.user} logout={props.logout} />}
+          {props.user.valid && <NavBar user={props.user} logout={props.logout} />}
           <Switch>
             <Route exact path='/' component={Login} />
             <Route exact path='/login' component={Login} />

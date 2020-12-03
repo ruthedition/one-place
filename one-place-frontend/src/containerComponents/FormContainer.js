@@ -17,7 +17,6 @@ export default class FormContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.props.member)
     this.props.handleSubmit(this.props.member)
     this.setState({
       formStatus: {

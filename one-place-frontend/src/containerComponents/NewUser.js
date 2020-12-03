@@ -3,6 +3,8 @@ import { Form } from "semantic-ui-react";
 import { NewUserForm } from '../presentationalComponents/NewUserForm'
 import { connect } from 'react-redux'
 import { addUser } from '../actions/userActions'
+import { Redirect } from 'react-router-dom'
+
 class NewUser extends Component {
   state = {
     firstName: "",
@@ -19,7 +21,13 @@ class NewUser extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.addUser(this.state)
+    const user = {user: {
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      email: this.state.email, 
+      password: this.state.password
+    }}
+    this.props.addUser(user)
     this.setState({
       firstName: "",
       lastName: "",
@@ -43,11 +51,19 @@ class NewUser extends Component {
 
   render() {
     return (
-      <NewUserForm
+      this.props.loggedIn ?
+        <Redirect to="/members" /> :  
+        <NewUserForm
         handleSubmit={this.handleSubmit}
         renderInput={this.renderInput}
       />
     )
+  }
+}
+
+const mapStateToProps = ({ users }) => {
+  return {
+    loggedIn: users.valid
   }
 }
 
@@ -57,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewUser)
+export default connect(mapStateToProps, mapDispatchToProps)(NewUser)

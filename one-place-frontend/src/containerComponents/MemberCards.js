@@ -13,7 +13,7 @@ class MemberCards extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchMembers(this.props.user.id)
+    this.props.fetchMembers(this.props.user.current.id)  
   }
 
   toggleModal = (open) => {

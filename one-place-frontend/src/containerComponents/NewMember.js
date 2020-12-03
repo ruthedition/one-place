@@ -17,7 +17,7 @@ class NewMember extends Component {
       items: '',
       color: '',
       notes: '',
-      user_id: this.props.user.id
+      user_id: this.props.user.current.id
     }
   }
 

@@ -34,7 +34,7 @@ class Login extends Component {
 
 const mapStateToProps = ({ users }) => {
   return {
-    loggedIn: users.loggedIn
+    loggedIn: users.valid
   }
 }
 const mapDispatchToProps = (dispatch) => {

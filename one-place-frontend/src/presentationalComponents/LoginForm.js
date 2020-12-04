@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, HeaderContent, Message, Segment } from 'semantic-ui-react'
 
 
 export const LoginForm = (props) => {
@@ -13,8 +13,8 @@ export const LoginForm = (props) => {
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
-          Login
+      <Header as='h2' color='teal' textAlign='center'>
+        Welcome to One Place <br/>
         </Header>
         <Form size='large' onSubmit={props.handleSubmit}>
           <Segment stacked>

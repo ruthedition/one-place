@@ -1,5 +1,4 @@
 import * as Cookies from 'js-cookie'
-import history from 'history/browser';
 
 const URL = 'http://localhost:8000';
 

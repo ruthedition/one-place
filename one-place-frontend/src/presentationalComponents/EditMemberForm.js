@@ -13,6 +13,12 @@ export const EditMemberForm = (props) => {
     handleChange
   } = props
 
+  const getFormattedMember = () => {
+    if (member) {
+      const date = new Date(member.birthday)
+      return { ...member, birthday: date.toISOString().substr(0, 10) }
+    }
+  }
   return (
     <div>
       <Modal
@@ -22,7 +28,7 @@ export const EditMemberForm = (props) => {
       >
         <Modal.Content>
           <FormContainer
-            member={member}
+            member={getFormattedMember()}
             handleSubmit={editMember}
             handleChange={handleChange}
           />

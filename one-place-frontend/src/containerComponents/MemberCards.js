@@ -7,13 +7,13 @@ import { EditMemberForm } from '../presentationalComponents/EditMemberForm'
 
 class MemberCards extends Component {
 
-  state = { 
+  state = {
     open: false,
     selectedMember: null
   }
 
   componentDidMount() {
-    this.props.fetchMembers(this.props.user.current.id)  
+    this.props.fetchMembers(this.props.user.current.id)
   }
 
   toggleModal = (open) => {
@@ -34,11 +34,16 @@ class MemberCards extends Component {
     })
   }
 
+  getFormattedMember = (member) => {
+    const date = new Date(member.birthday)
+    return { ...member, birthday: date.toLocaleDateString()}
+  }
+
   renderMemberCards = () => (
     this.props.members.map(member => (
       <MemberCard
         key={member.id}
-        member={member}
+        member={this.getFormattedMember(member)}
         removeMember={this.props.removeMember}
         handleEdit={this.handleEdit}
       />

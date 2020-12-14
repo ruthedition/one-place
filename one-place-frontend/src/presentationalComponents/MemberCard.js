@@ -49,7 +49,7 @@ const MemberCard = (props) => {
           {renderListItem(`Shoe Size: ${shoe_size}`, 'shopping bag', 'blue')}
           {renderListItem(`Gift Ideas: ${gifts}`, 'gift', 'teal')}
           {renderListItem(`Favorite Items: ${items}`, 'heart', 'red')}
-          {renderListItem(`Favorite Color: ${color}`, 'circle full', `${color}`)}
+          {renderListItem(`Favorite Color: ${color}`, 'circle', `${color}`)}
         </List>
       </Card.Description>
     )
